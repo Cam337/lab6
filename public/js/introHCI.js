@@ -26,5 +26,22 @@ function addProjectDetails(e) {
 	// get rid of 'project' from the front of the id 'project3'
 	var idNumber = projectID.substr('project'.length);
 
+	var projectURL = "/project/" + idNumber;
+
+	// call AJAX endpoint
+	$.get(projectURL, addProject);
+
+
 	console.log("User clicked on project " + idNumber);
+	console.log("GET " + projectURL);
+}
+
+function addProject(result) {
+	// empty for now
+	var target = ".project#"+ result["id"] +" .details";
+	var projectHTML = "<p>" + result["title"] +"</p>";
+	console.log(target);
+	console.log(projectHTML);
+
+	$(target).html(projectHTML);
 }
