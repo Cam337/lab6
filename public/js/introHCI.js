@@ -38,10 +38,15 @@ function addProjectDetails(e) {
 
 function addProject(result) {
 	// empty for now
-	var target = ".project#"+ result["id"] +" .details";
-	var projectHTML = "<p>" + result["title"] +"</p>";
-	console.log(target);
+	console.log(result);
+	//var selector = "#"+ result["id"] +".details";
+  var selector = "#project" + result["id"] + " .details";
+	var projectHTML = '<img src="' + result["image"] + '" class="detailsImage">'
+	  + '<h3>' + result["title"] + '</h3>' + '<h4>' + result["date"] + '</h4>' +
+		'<p>' + result["summary"] + '</p>';
+
+	console.log(selector);
 	console.log(projectHTML);
 
-	$(target).html(projectHTML);
+  $(selector).html(projectHTML);
 }
